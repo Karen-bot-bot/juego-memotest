@@ -6,6 +6,10 @@ let primerResultado = null;
 let segundoResultado = null;
 
 let movimientos = 0;
+let aciertos = 0;
+
+const felicidadesMensaje = document.getElementById("felicidades");
+const tablero = document.getElementById("tablero");
 
 let mostrarMovimientos = document.querySelector("#movimientos");
 
@@ -16,13 +20,13 @@ let emojis = [
   "🦄",
   "🦄",
   "🦖",
-  "​🦖",
+  "🦖",
   "​🐳",
   "​🐳",
   "🐣",
   "🐣",
   "​🙉",
-  "🙉",
+  "​🙉",
   "🦁",
   "🦁",
   "🐧",
@@ -58,5 +62,25 @@ function destapar(id) {
     // incrementar  movimientos
     movimientos++;
     mostrarMovimientos.innerHTML = `Movimientos: ${movimientos}`;
+
+    if (primerResultado === segundoResultado) {
+      tarjetasDestapadas = 0;
+
+      aciertos++;
+
+      if (aciertos === 8) {
+        felicidadesMensaje.style.display = "block"; // Mostrar mensaje de felicitaciones
+        tablero.style.display = "none"; // Ocultar tablero
+      }
+    } else {
+      // Mostrar momentaneamente valores y volver a tapar
+      setTimeout(() => {
+        tarjeta1.innerHTML = "";
+        tarjeta2.innerHTML = "";
+        tarjeta1.classList.remove("disabled");
+        tarjeta2.classList.remove("disabled");
+        tarjetasDestapadas = 0;
+      }, 1000);
+    }
   }
 }

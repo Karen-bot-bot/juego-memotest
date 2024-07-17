@@ -12,10 +12,9 @@ body {
   background: aqua !important;
 }
 
-.container {
-  padding: 16px;
+#tablero {
+  padding: 16px 40px;
   position: relative;
-  gap: 8px;
   background: aquamarine;
 }
 
@@ -25,17 +24,19 @@ h2 {
 }
 
 .columna-juego {
-  padding: 0 4px !important;
+  padding: 0 2px !important;
 }
 
 .cuadro {
+  margin: 2px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   background: rgb(179, 69, 69);
   font-size: 3.5em;
+  cursor: pointer;
 }
 
 .reset {
@@ -53,12 +54,6 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .container {
-    margin: 20px !important;
-    text-align: center;
-    justify-content: space-around !important;
-  }
-
   .cuadro {
     width: 90px;
     height: 90px;
