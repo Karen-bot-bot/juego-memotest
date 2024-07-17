@@ -7,13 +7,14 @@ let segundoResultado = null;
 
 let movimientos = 0;
 let aciertos = 0;
+let timer = 0;
+let temporizador = false;
 
 const felicidadesMensaje = document.getElementById("felicidades");
 const tablero = document.getElementById("tablero");
 
 let mostrarMovimientos = document.querySelector("#movimientos");
-
-const tiempoValor = document.querySelector("#tiempo");
+let mostrarTiempo = document.querySelector("#tiempo");
 
 // Generación de emojis aleatorios
 let emojis = [
@@ -39,7 +40,28 @@ let azarEmojis = emojis.sort(() => {
 });
 const $cuadro = document.querySelectorAll("#cuadro");
 
+function contarTiempo() {
+  setInterval(() => {
+    timer++;
+    let minutos = Math.floor(timer / 60);
+    let segundos = timer % 60;
+    mostrarTiempo.innerHTML = `Tiempo: ${formatearTiempo(
+      minutos
+    )}:${formatearTiempo(segundos)}`;
+  }, 1000);
+}
+
+function formatearTiempo(tiempo) {
+  return tiempo < 10 ? `0${tiempo}` : tiempo;
+}
+
+// función principal
 function destapar(id) {
+  if (temporizador == false) {
+    contarTiempo();
+    temporizador = true;
+  }
+
   tarjetasDestapadas++;
   console.log(tarjetasDestapadas);
 
@@ -80,7 +102,7 @@ function destapar(id) {
         tarjeta1.classList.remove("disabled");
         tarjeta2.classList.remove("disabled");
         tarjetasDestapadas = 0;
-      }, 1000);
+      }, 500);
     }
   }
 }

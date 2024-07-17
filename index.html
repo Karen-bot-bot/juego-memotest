@@ -14,7 +14,7 @@
         <div
             class="container-game container container-sm container-md container-lg d-flex flex-column justify-content-center align-items-center">
             <h2 class="text-light">Juego de Memoria</h2>
-            <h5 class="estadisticas mb-0" id="tiempo">Tiempo:</h5>
+            <h5 class="estadisticas mb-0" id="tiempo">Tiempo: 00:00 </h5>
             <h5 class="estadisticas mb-0" id="movimientos">Movimientos: 0</h5>
             <div class="game row fila-juego">
                 <div class="col columna-juego">
@@ -72,14 +72,13 @@
                     <div id="15" onclick="destapar(15)" class="cuadro">32</div>
                 </div>
             </div>
-            <button class="reset mt-3">Resetear</button>
+            <button type="reset" class="reset mt-3">Resetear</button>
         </div>
     </div>
 
-    <div id="felicidades" style="display: none;">¡Felicidades! Has ganado</div>
-    <button class="reset mt-3" style="display: none;">Volver a jugar</button>
-    <div class="controls-container">
-        <p id="resultado"></p>
+    <div class="contenedor-fin">
+        <div id="felicidades" style="display: none;">¡Felicidades! Has ganado</div>
+        <button class="reset mt-3" style="display: none;">Volver a jugar</button>
     </div>
 
 
