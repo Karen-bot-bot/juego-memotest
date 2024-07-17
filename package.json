@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "name": "juego-memotest",
+  "version": "1.0.0",
+  "description": "juego de memoria",
+  "main": "index.html",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karen-bot-bot/juego-memotest.git"
+  },
+  "author": "Karen Luna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karen-bot-bot/juego-memotest/issues"
+  },
+  "homepage": "https://github.com/Karen-bot-bot/juego-memotest#readme"
+}
