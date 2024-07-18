@@ -4,14 +4,18 @@ let tarjeta1 = null;
 let tarjeta2 = null;
 let primerResultado = null;
 let segundoResultado = null;
+let tiempoRegresivoId = null;
 
 let movimientos = 0;
 let aciertos = 0;
-let timer = 0;
+let timer = 10;
 let temporizador = false;
+let intervalId;
 
-const felicidadesMensaje = document.getElementById("felicidades");
+const felicidadesMensaje = document.getElementById(".contenedor-ganador");
 const tablero = document.getElementById("tablero");
+const fracasoMensaje = document.querySelector(".contenedor-perdedor");
+const botonReintento = document.querySelector(".reset");
 
 let mostrarMovimientos = document.querySelector("#movimientos");
 let mostrarTiempo = document.querySelector("#tiempo");
@@ -38,16 +42,17 @@ let emojis = [
 let azarEmojis = emojis.sort(() => {
   return Math.random() - 0.5;
 });
-const $cuadro = document.querySelectorAll("#cuadro");
 
 function contarTiempo() {
-  setInterval(() => {
-    timer++;
-    let minutos = Math.floor(timer / 60);
-    let segundos = timer % 60;
-    mostrarTiempo.innerHTML = `Tiempo: ${formatearTiempo(
-      minutos
-    )}:${formatearTiempo(segundos)}`;
+  tiempoRegresivoId = setInterval(() => {
+    timer--;
+
+    mostrarTiempo.innerHTML = `Tiempo: ${timer}s`;
+    if (timer == 0) {
+      clearInterval(tiempoRegresivoId);
+      tablero.style.display = "none";
+      fracasoMensaje.style.display = "block";
+    }
   }, 1000);
 }
 
@@ -57,16 +62,16 @@ function formatearTiempo(tiempo) {
 
 // función principal
 function destapar(id) {
-  if (temporizador == false) {
+  if (!temporizador) {
     contarTiempo();
     temporizador = true;
   }
 
   tarjetasDestapadas++;
-  console.log(tarjetasDestapadas);
+  const cuadro = document.getElementById(id);
 
   if (tarjetasDestapadas == 1) {
-    tarjeta1 = document.getElementById(id);
+    tarjeta1 = cuadro;
     primerResultado = azarEmojis[id];
     tarjeta1.innerHTML = primerResultado;
 
@@ -74,7 +79,7 @@ function destapar(id) {
     tarjeta1.classList.add("disabled");
   } else if (tarjetasDestapadas == 2) {
     // mostrar segundo emoji
-    tarjeta2 = document.getElementById(id);
+    tarjeta2 = cuadro;
     segundoResultado = azarEmojis[id];
     tarjeta2.innerHTML = segundoResultado;
 
@@ -93,6 +98,7 @@ function destapar(id) {
       if (aciertos === 8) {
         felicidadesMensaje.style.display = "block"; // Mostrar mensaje de felicitaciones
         tablero.style.display = "none"; // Ocultar tablero
+        clearInterval(intervalId); // Detener el temporizador
       }
     } else {
       // Mostrar momentaneamente valores y volver a tapar

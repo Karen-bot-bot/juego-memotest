@@ -11,74 +11,86 @@
 
 <body>
     <div id="tablero">
-        <div
-            class="container-game container container-sm container-md container-lg d-flex flex-column justify-content-center align-items-center">
-            <h2 class="text-light">Juego de Memoria</h2>
-            <h5 class="estadisticas mb-0" id="tiempo">Tiempo: 00:00 </h5>
-            <h5 class="estadisticas mb-0" id="movimientos">Movimientos: 0</h5>
-            <div class="game row fila-juego">
+        <div class="container-game p-0 container container-sm container-md container-lg flex-column">
+            <h2>Juego de Memoria</h2>
+            <div class="row fila-juego">
                 <div class="col columna-juego">
-                    <div id="0" onclick="destapar(0)" class="cuadro">32</div>
+                    <div id="0" onclick="destapar(0)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="1" onclick="destapar(1)" class="cuadro">32</div>
+                    <div id="1" onclick="destapar(1)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="2" onclick="destapar(2)" class="cuadro">32</div>
+                    <div id="2" onclick="destapar(2)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="3" onclick="destapar(3)" class="cuadro">32</div>
+                    <div id="3" onclick="destapar(3)" class="cuadro"></div>
                 </div>
             </div>
             <div class="row fila-juego">
                 <div class="col columna-juego">
-                    <div id="4" onclick="destapar(4)" class="cuadro">32</div>
+                    <div id="4" onclick="destapar(4)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="5" onclick="destapar(5)" class="cuadro">32</div>
+                    <div id="5" onclick="destapar(5)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="6" onclick="destapar(6)" class="cuadro">32</div>
+                    <div id="6" onclick="destapar(6)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="7" onclick="destapar(7)" class="cuadro">32</div>
+                    <div id="7" onclick="destapar(7)" class="cuadro"></div>
                 </div>
             </div>
             <div class="row fila-juego">
                 <div class="col columna-juego">
-                    <div id="8" onclick="destapar(8)" class="cuadro">32</div>
+                    <div id="8" onclick="destapar(8)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="9" onclick="destapar(9)" class="cuadro">32</div>
+                    <div id="9" onclick="destapar(9)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="10" onclick="destapar(10)" class="cuadro">32</div>
+                    <div id="10" onclick="destapar(10)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="11" onclick="destapar(11)" class="cuadro">32</div>
+                    <div id="11" onclick="destapar(11)" class="cuadro"></div>
                 </div>
             </div>
             <div class="row fila-juego">
                 <div class="col columna-juego">
-                    <div id="12" onclick="destapar(12)" class="cuadro">32</div>
+                    <div id="12" onclick="destapar(12)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="13" onclick="destapar(13)" class="cuadro">32</div>
+                    <div id="13" onclick="destapar(13)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="14" onclick="destapar(14)" class="cuadro">32</div>
+                    <div id="14" onclick="destapar(14)" class="cuadro"></div>
                 </div>
                 <div class="col columna-juego">
-                    <div id="15" onclick="destapar(15)" class="cuadro">32</div>
+                    <div id="15" onclick="destapar(15)" class="cuadro"></div>
                 </div>
             </div>
-            <button type="reset" class="reset mt-3">Resetear</button>
+
+            <div class="row d-flex funcion-game">
+                <div class="col mt-3 p-0">
+                    <p class="estadisticas mb-0" id="tiempo">Tiempo: 30s </p>
+                    <p class="estadisticas mb-0" id="movimientos">Movimientos: 0</p>
+                </div>
+                <div class="col d-flex justify-content-end p-0">
+                    <button type="reset" value="Reset" class="boton-reset mt-3">Resetear</button>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="contenedor-fin">
+    <div class="contenedor-ganador">
         <div id="felicidades" style="display: none;">¡Felicidades! Has ganado</div>
         <button class="reset mt-3" style="display: none;">Volver a jugar</button>
+    </div>
+
+    <div class="contenedor-perdedor">
+        <div id=" fracaso" style="display: none;">¡Ups! El tiempo se acabo.</div>
+    <button class="reset mt-3" style="display: none;">Reintentar</button>
     </div>
 
 

@@ -9,18 +9,25 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: aqua !important;
+  background-image: linear-gradient(
+    #6922c0,
+    rgba(164, 42, 175, 0.884)
+  ) !important;
 }
 
 #tablero {
   padding: 16px 40px;
-  position: relative;
-  background: aquamarine;
+  background: white;
+  border-radius: 6px;
+  margin: 16px;
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.336);
 }
 
 h2 {
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: 800;
 }
 
 .columna-juego {
@@ -29,38 +36,45 @@ h2 {
 
 .cuadro {
   margin: 2px 0;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90px;
-  width: 90px;
-  background: rgb(179, 69, 69);
+  height: 100px;
+  width: 100px;
+  background: #7918f2;
   font-size: 3.5em;
   cursor: pointer;
 }
 
-.reset {
-  padding: 12px 20px;
-  font-size: 1em;
+.estadisticas {
+  font-weight: 600;
+}
+
+.boton-reset {
+  color: #7918f2;
+  border: 2px solid #7918f2;
+  width: 120px;
+  padding: 8px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 600;
+  border-radius: 6px;
 }
 
 .disabled {
   pointer-events: none;
   background: white;
+  box-shadow: 2px 1px 8px gray;
+}
+
+.contenedor-ganador {
 }
 
 @media (max-width: 768px) {
   .cuadro {
-    width: 90px;
     height: 90px;
-  }
-
-  .reset {
-    font-size: 1em;
-    padding: 8px 12px;
+    width: 90px;
   }
 }
