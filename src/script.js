@@ -8,14 +8,13 @@ let tiempoRegresivoId = null;
 
 let movimientos = 0;
 let aciertos = 0;
-let timer = 10;
+let timer = 30;
 let temporizador = false;
 let intervalId;
 
-const felicidadesMensaje = document.getElementById(".contenedor-ganador");
 const tablero = document.getElementById("tablero");
+const felicidadesMensaje = document.querySelector(".contenedor-ganador");
 const fracasoMensaje = document.querySelector(".contenedor-perdedor");
-const botonReintento = document.querySelector(".reset");
 
 let mostrarMovimientos = document.querySelector("#movimientos");
 let mostrarTiempo = document.querySelector("#tiempo");
@@ -39,9 +38,8 @@ let emojis = [
   "🐖",
   "🐖",
 ];
-let azarEmojis = emojis.sort(() => {
-  return Math.random() - 0.5;
-});
+
+let azarEmojis = emojis.sort(() => Math.random() - 0.5);
 
 function contarTiempo() {
   tiempoRegresivoId = setInterval(() => {
