@@ -6,9 +6,15 @@
   "version": "1.0.0",
   "description": "juego de memoria",
   "main": "index.html",
-  "devDependencies": {},
+  "devDependencies": {
+    "cypress": "^13.13.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server",
+    "cypress-run": "cypress run",
+    "cypress-dev": "cypress open",
+    "test-dev": "run-p start cypress-dev",
+    "cypress-component": "cypress open-ct"
   },
   "repository": {
     "type": "git",

@@ -46,8 +46,10 @@ function contarTiempo() {
     timer--;
 
     mostrarTiempo.innerHTML = `Tiempo: ${timer}s`;
-    if (timer == 0) {
+
+    if (timer <= 0) {
       clearInterval(tiempoRegresivoId);
+      mostrarTiempo.innerHTML = `Tiempo: 0s`;
       tablero.style.display = "none";
       fracasoMensaje.style.display = "block";
     }
@@ -94,9 +96,14 @@ function destapar(id) {
       aciertos++;
 
       if (aciertos === 8) {
-        felicidadesMensaje.style.display = "block"; // Mostrar mensaje de felicitaciones
+        clearInterval(tiempoRegresivoId); // Detener el temporizador
+        if (timer > 0) {
+          // Solo mostrar el mensaje de felicitación si hay tiempo restante
+          felicidadesMensaje.style.display = "block"; // Mostrar mensaje de felicitaciones
+        } else {
+          fracasoMensaje.style.display = "block"; // Mostrar mensaje de tiempo agotado
+        }
         tablero.style.display = "none"; // Ocultar tablero
-        clearInterval(intervalId); // Detener el temporizador
       }
     } else {
       // Mostrar momentaneamente valores y volver a tapar

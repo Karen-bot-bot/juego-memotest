@@ -7,12 +7,14 @@
     <title>Memotest</title>
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
     <div id="tablero">
         <div class="container-game p-0 container container-sm container-md container-lg flex-column">
-            <h2>Juego de Memoria</h2>
+            <h2 class="titulo">Juego de Memoria</h2>
             <div class="row fila-juego">
                 <div class="col columna-juego">
                     <div id="0" onclick="destapar(0)" class="cuadro"></div>
@@ -77,7 +79,7 @@
                 </div>
                 <div class="col d-flex justify-content-end p-0">
                     <button type="reset" value="Reset" class="boton-reset mt-3"
-                        onclick="window.location.reload();">Resetear</button>
+                        onclick="window.location.reload();">Reiniciar</button>
                 </div>
             </div>
 
@@ -85,13 +87,18 @@
     </div>
 
     <div class="contenedor-ganador" style="display: none;">
-        <div id="felicidades">¡Felicidades! Has ganado</div>
-        <button class="reset mt-3" onclick="window.location.reload();">Volver a jugar</button>
+        <div id="felicidades">
+            <h2>¡Felicidades, Ganaste!</h2>
+        </div>
+        <button class="reset" onclick="window.location.reload();"><i class="icon fas fa-redo-alt"></i>Jugar</button>
     </div>
 
     <div class="contenedor-perdedor" style="display: none;">
-        <div id=" fracaso">¡Ups! El tiempo se acabo.</div>
-        <button class="reset mt-3" onclick="window.location.reload();">Reintentar</button>
+        <div id="fracaso">
+            <h2>Ups... ¡Perdiste!</h2>
+        </div>
+        <button class="reset" onclick="window.location.reload();">
+            <i class="icon fas fa-redo-alt"></i>Reintentar</button>
     </div>
 
 
